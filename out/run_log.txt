@@ -1,0 +1,79 @@
+run started 2026-09-14T03:25:58+00:00
+python 3.12.14
+
+========================================================================
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 src/p1_tennis.py
+========================================================================
+Total games in 6 matches: [39, 56, 45, 59, 40, 34]
+Overall Alcaraz win prob on serve: 0.6251 (532/851)
+Overall Sinner win prob on serve: 0.6191 (564/911)
+Mean games: 41.72156
+Min games: 21
+Max games: 65
+Alcaraz hold prob: 0.785655156946372
+Sinner hold prob: 0.7741269513953015
+Pooled: p_A = 0.6251, p_S = 0.6191
+Mean of ratios: p_A = 0.6343, p_S = 0.6258
+exact pmf sums to 1.000000000000, mean 41.734545, TV(MC, exact) = 0.008045
+sets (MC): {'3': 0.25188, '4': 0.3762, '5': 0.37192}
+sets (exact): {'3': 0.251249, '4': 0.374999, '5': 0.373752}
+mid-percentile of each observed match: {'39': 0.387, '56': 0.9598, '45': 0.618, '59': 0.9904, '40': 0.4264, '34': 0.2288}
+SE of a mean of 6 draws: 3.5676
+p1_tennis.py done
+
+========================================================================
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 src/p2_pareto.py
+========================================================================
+alpha = 1: pdf(1) = 1 vs exp(-1) = 0.3679; crossings at none (Pareto above throughout)
+           at a = 20: pareto 2.500e-03, exponential 2.061e-09
+alpha = 2: pdf(1) = 2 vs exp(-1) = 0.3679; crossings at none (Pareto above throughout)
+           at a = 20: pareto 2.500e-04, exponential 2.061e-09
+alpha = 4: pdf(1) = 4 vs exp(-1) = 0.3679; crossings at [1.948, 10.25]
+           at a = 20: pareto 1.250e-06, exponential 2.061e-09
+p2_pareto.py done
+
+========================================================================
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 src/p3_fires.py
+========================================================================
+m_hat      = 10.000078   (true m = 10.0)
+alpha_hat  = 1.515540   (true alpha = 1.5)
+lambda_hat = 0.035874   (= 1 / sample mean 27.876)
+sample median = 15.874, sample max = 2323.6
+thresholds a ->10a: [10, 100, 1000]
+empirical ratios : ['32.47', '51.33', 'inf']
+Pareto ratio     : 10**alpha_hat = 32.77 (same at every threshold)
+exponential      : ['25.2', '1.05e+14', '1.65e+140']
+counts above a, 10a: [(10, 5000, 154), (100, 154, 3), (1000, 3, 0)]
+P(> 100,000 acres): Pareto 8.667e-07 | exponential 0.000e+00 | empirical 0.000e+00 | truth 1.000e-06
+expected count over 1,610,000 fires: Pareto 1.40 | exponential 0.00 | empirical 0.00 | truth 1.61
+p3_fires.py done
+
+========================================================================
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 src/p4_kl.py
+========================================================================
+Gaussian KL: closed form 1.756607 nats, Monte Carlo 1.753994 +/- 0.005783 (3 s.e.)
+reverse direction 1.424376 -> KL is not symmetric
+self-divergence check: 0.00e+00
+1-D example: D(N(0,1)||N(1,2^2)) = 0.4431, reverse 1.3069
+4(a): argmax (1/n)lnL = 0.3883, argmin KL = 0.3883, closed-form xbar/K = 0.3881
+      max |(1/n)lnL + D + H| over the grid = 6.66e-16   (H = 1.5781 nats)
+4(b): relative error at eps=1e-3 is 1.057e-03; log-log slope of relative error vs eps = 1.041  (1 means absolute error is O(eps^3))
+p4_kl.py done
+
+========================================================================
+$ /opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 src/build_report.py
+========================================================================
+Rc files read:
+  /etc/LatexMk
+Latexmk: Run number 1 of rule 'pdflatex'
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+Latexmk: Getting log file '/tmp/math-probability-pdf-wluu8m_c/Mathematical_Probability_Homework.log'
+Latexmk: Run number 2 of rule 'pdflatex'
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+Latexmk: Getting log file '/tmp/math-probability-pdf-wluu8m_c/Mathematical_Probability_Homework.log'
+
+built report/Mathematical_Probability_Homework.pdf (1,197,707 bytes)
